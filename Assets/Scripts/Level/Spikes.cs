@@ -9,7 +9,7 @@ public class Spikes : MonoBehaviour
         PlayerPhysics player = other.GetComponent<PlayerPhysics>();
         if (player != null)
         {
-            Vector2 direction = (transform.position - transform.position).normalized;
+            Vector2 direction = (player.transform.position - transform.position).normalized;
             player.Hurt(direction * knockbackForce);
         }
     }
