@@ -11,11 +11,11 @@ public class PlayerColorChanger : MonoBehaviour
 
     void TargetDestroyedHandler(GameItem gameItem)
     {
-        if (gameItem == GameItem.Gem)
+        if (gameItem == GameItem.Gem && spriteRenderer != null)
         {
             spriteRenderer.color = Color.red;
         }
-        else if (gameItem == GameItem.Key)
+        else if (gameItem == GameItem.Key && spriteRenderer != null)
         {
             spriteRenderer.color = Color.blue;
         }
