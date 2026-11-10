@@ -9,11 +9,28 @@ public class Respawner : MonoBehaviour
 
     void OnEnable()
     {
-        // TODO
+        Gem.Damage += RespawnGem;
     }
 
     void OnDisable()
     {
-        // TODO
+        Gem.Damage -= RespawnGem;
+    }
+
+    void RespawnGem()
+    {
+        StartCoroutine(RespawnGemCoroutine());
+    }
+
+    IEnumerator RespawnGemCoroutine()
+    {
+        yield return new WaitForSeconds(respawnDelay);
+        SpawnGem();
+    }
+
+    void SpawnGem()
+    {
+        Instantiate(gemPrefab, spawnPoint.position, Quaternion.identity);
     }
 }
+
