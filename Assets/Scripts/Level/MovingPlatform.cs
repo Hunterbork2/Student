@@ -14,7 +14,24 @@ public class MovingPlatform : MonoBehaviour
 
     float MyMoveTowards(float current, float target, float maxDelta)
     {
-        // TODO
+        if (current < target)
+        {
+            current += maxDelta;
+
+            if (current > target) 
+            {
+                current = target;
+            }
+        }
+        else if (current > target)
+        {
+            current -= maxDelta;
+
+            if (current < target)
+            {
+                current = target;
+            }
+        }
         return current;
     }
 }
